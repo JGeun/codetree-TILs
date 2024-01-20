@@ -14,37 +14,27 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         input();
-        solve();
+        int res = solve();
+        System.out.println(res);
     }
 
-    private static void solve() {
-        int index = getIndex();
+    private static int solve() {
+        int target = Math.abs(B-A);
 
-        int res = 0;
-        int dist = 1;
-        for (int i=0; i< index; i++) {
+        boolean isTargetRight = B > A ? true : false;
+        int restValue = isTargetRight ? 0 : 1;
+
+        int res = 0, index = 0, calc = 1, dist = 1;
+        while(true) {
+            if (calc >= target && index%2 == restValue) break;
             res += dist*2;
+            calc *= 2;
+            index += 1;
             dist*=2;
         }
 
         res += Math.abs(B-A);
-        System.out.println(res);
-    }
-
-    private static int getIndex() {
-        int target = Math.abs(B-A);
-
-        int index = B > A ? 0 : 1;
-        int value = 1;
-
-        while (true) {
-            if (value*2 >= target) break;
-
-            value *= 2;
-            index += 2;
-        }
-
-        return index;
+        return res;
     }
     
     private static void input() throws IOException {
