@@ -47,7 +47,7 @@ public class Main {
         int res = 0;
         for (int num : firstMap.keySet()) {
             if (secondMap.containsKey(-num)) {
-                res += 1;
+                res += firstMap.get(num) * secondMap.get(-num);
             }
         }
 
