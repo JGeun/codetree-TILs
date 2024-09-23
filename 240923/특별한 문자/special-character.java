@@ -15,7 +15,6 @@ public class Main {
 
     private static void solve() {
         char[] chArr = word.toCharArray();
-        Arrays.sort(chArr);
         LinkedHashMap<Character, Integer> storeMap = new LinkedHashMap<>();
 
         for (char ch : chArr) {
