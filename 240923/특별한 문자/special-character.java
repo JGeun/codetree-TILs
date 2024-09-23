@@ -22,12 +22,15 @@ public class Main {
             storeMap.put(ch, storeMap.getOrDefault(ch, 0) + 1);
         }
 
+        char result = ' ';
         for (char key : storeMap.keySet()) {
             int cnt = storeMap.get(key);
             if (cnt != 1) continue;
-            System.out.println(key); 
+            result = key;
             break;
         }
+
+        System.out.println(result != ' ' ? result : "None");
     }
 
     private static void init() throws IOException {
