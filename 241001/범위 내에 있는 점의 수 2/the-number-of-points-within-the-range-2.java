@@ -46,7 +46,8 @@ public class Main {
             int end = Integer.parseInt(st.nextToken());
 
             int prevSum = start == 0 ? 0 : presums[start-1];
-            sb.append(presums[end] - prevSum).append();
+            int result = presums[end] - prevSum;
+            sb.append(result).append("\n");
         }
 
         System.out.println(sb);
