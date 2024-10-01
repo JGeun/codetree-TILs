@@ -39,7 +39,7 @@ public class Main {
         }
 
         for(int i = 1; i <= n; i++)
-            System.out.print(dist[i] + "\n");
+            System.out.print(dist[i] == 1000000000 ? -1 : dist[i] + "\n");
     }
 
     private static void input() throws IOException {
