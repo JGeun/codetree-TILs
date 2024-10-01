@@ -31,7 +31,7 @@ public class Main {
                 int targetDist = graph.get(minIndex).get(j).dist;
 
                 int newDist = dist[minIndex] + targetDist;
-                if (dist[targetIndex] > newDist && !visited[targetIndex]) {
+                if (dist[targetIndex] > newDist) {
                     dist[targetIndex] = newDist;
                     pq.add(new Node(targetIndex, newDist));
                 }
