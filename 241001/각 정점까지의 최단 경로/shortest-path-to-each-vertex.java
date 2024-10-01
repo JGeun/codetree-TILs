@@ -30,16 +30,23 @@ public class Main {
                 int targetIndex = graph.get(minIndex).get(j).index;
                 int targetDist = graph.get(minIndex).get(j).dist;
 
+                if (visited[targetIndex]) continue;
+
                 int newDist = dist[minIndex] + targetDist;
                 if (dist[targetIndex] > newDist) {
                     dist[targetIndex] = newDist;
+                    
                     pq.add(new Node(targetIndex, newDist));
                 }
             }
         }
 
-        for(int i = 1; i <= n; i++)
-            System.out.print(dist[i] == 1000000000 ? -1 : dist[i] + "\n");
+        StringBuilder sb = new StringBuilder();
+        for(int i = 1; i <= n; i++) {
+            int num = dist[i] != Integer.MAX_VALUE ? dist[i] : -1;
+            sb.append(num).append("\n");
+        }
+        System.out.println(sb);
     }
 
     private static void input() throws IOException {
@@ -51,7 +58,7 @@ public class Main {
 
         dist = new int[n+1];
         for (int i=0; i<=n; i++) {
-            dist[i] = 1000000000;
+            dist[i] = Integer.MAX_VALUE;
         }
 
         visited = new boolean[n+1];
